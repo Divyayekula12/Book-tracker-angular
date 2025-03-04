@@ -10,9 +10,9 @@ import { ChildComponent } from '../child/child.component';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent {
-  users: any[] = [];  // Array to store user data
+  users: any[] = [];  
 
   addUser(user: any) {
-    this.users.push(user);  // Add new user to the array
+    this.users.push(user);  
   }
 }

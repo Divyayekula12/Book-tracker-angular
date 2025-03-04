@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-child',
   standalone: true,
-  imports: [CommonModule, FormsModule],  // Import FormsModule for ngModel
+  imports: [CommonModule, FormsModule],  
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
@@ -16,7 +16,7 @@ export class ChildComponent {
   contactNumber: string = '';
   issueDate: string = '';
 
-  @Output() userAdded = new EventEmitter<any>();  // Event to send data to parent
+  @Output() userAdded = new EventEmitter<any>();  
 
   addUser() {
     const newUser = {
@@ -27,7 +27,7 @@ export class ChildComponent {
       issueDate: this.issueDate
     };
 
-    this.userAdded.emit(newUser);  // Emit event to parent
+    this.userAdded.emit(newUser); 
     this.clearForm();  
   }
 
