@@ -1,0 +1,35 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  h2{
+    text-align: center;
+    text-decoration: underline;
+    margin: 30px;
+  }
+  table {
+    margin: 10px;
+    width: 600px;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid hsl(0, 6%, 44%); 
+    padding: 10px;
+  }
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
