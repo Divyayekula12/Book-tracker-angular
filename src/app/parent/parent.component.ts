@@ -11,8 +11,8 @@ import { ChildComponent } from '../child/child.component';
 })
 export class ParentComponent {
   users: any[] = [];  
-
+  title: string = "Book Stream Tracker";
   addUser(user: any) {
-    this.users.push(user);  
+    this.users.push(user);        
   }
 }
