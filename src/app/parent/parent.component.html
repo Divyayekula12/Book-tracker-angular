@@ -1,24 +1,30 @@
-<app-child [title] = "title" (userAdded)="addUser($event)"></app-child>
+<app-child [title]="title"></app-child>
+
 <h2>Issued Books Registry</h2>
+
+<app-dropdown></app-dropdown>
+
 <div class="container">
-<table>
-  <thead>
-    <tr>
-      <th>Name of the Borrower</th>
-      <th>Book ID</th>
-      <th>Book title</th>
-      <th>Contact Number</th>
-      <th>Date of Issue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-    <td>{{ user.nameOfBorrower }}</td>
-    <td>{{ user.bookId }}</td>
-    <td>{{ user.bookTitle }}</td>
-    <td>{{ user.contactNumber }}</td>
-    <td>{{ user.issueDate }}</td>
-    </tr>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Borrower</th>
+        <th>Book ID</th>
+        <th>Book Title</th>
+        <th>Contact Number</th>
+        <th>Date of Issue</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.nameOfBorrower }}</td>
+        <td>{{ user.bookId }}</td>
+        <td>{{ user.bookTitle }}</td>
+        <td>{{ user.contactNumber }}</td>
+        <td>{{ user.issueDate }}</td>
+        <td>{{ user.status }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

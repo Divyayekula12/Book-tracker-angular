@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-child',
@@ -17,28 +18,31 @@ export class ChildComponent {
   bookTitle: string = '';
   contactNumber: string = '';
   issueDate: string = '';
+  status: string = 'Completed';
 
-  @Output() userAdded = new EventEmitter<any>();  
+  constructor(private sharedService: SharedService) {}
 
-  addUser() {
-  if (!this.nameOfBorrower || !this.bookId || !this.bookTitle || !this.contactNumber || !this.issueDate) {
-    alert('All fields are required.');
-    return;
-  }
+  addUser () {
+    if (!this.nameOfBorrower || !this.bookId || !this.bookTitle || !this.contactNumber || !this.issueDate) {
+      alert('All fields are required.');
+      return;
+    }
 
-  if (!/^\d{10}$/.test(this.contactNumber)) {
-    alert('Contact Number must be exactly 10 digits.');
-    return;
-  }
-    const newUser = {
+    if (!/^\d{10}$/.test(this.contactNumber)) {
+      alert('Contact Number must be exactly 10 digits.');
+      return;
+    }
+
+    const newUser  = {
       nameOfBorrower: this.nameOfBorrower,
       bookId: this.bookId,
       bookTitle: this.bookTitle,
       contactNumber: this.contactNumber,
-      issueDate: this.issueDate
+      issueDate: this.issueDate,
+      status: this.status
     };
 
-    this.userAdded.emit(newUser); 
+    this.sharedService.addUser (newUser ); 
     this.clearForm();  
   }
 
