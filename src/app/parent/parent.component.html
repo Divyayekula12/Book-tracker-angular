@@ -1,5 +1,4 @@
-<app-child [title]="title"></app-child>
-
+<app-child (userAdded)="handleUserAdded($event)"></app-child>
 <h2>Issued Books Registry</h2>
 
 <app-dropdown></app-dropdown>

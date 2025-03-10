@@ -20,7 +20,7 @@ export class ParentComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit() {
-    // Subscribe to users observable to keep users updated
+    // Subscribe to users observable
     this.sharedService.users$.subscribe(users => {
       this.users = users;
       this.applyFilters();
@@ -34,6 +34,12 @@ export class ParentComponent implements OnInit {
 
   applyFilters() {
     const selectedStatuses = this.sharedService.getSelectedStatuses();
-    this.filteredUsers = selectedStatuses.length === 0 ? [...this.users]  : this.users.filter(user => selectedStatuses.includes(user.status));
+    this.filteredUsers = selectedStatuses.length === 0 ? [...this.users] : this.users.filter(user => selectedStatuses.includes(user.status));
+  }
+
+  // Function to receive data from child component
+  handleUserAdded(newUser: User) {
+    this.users.push(newUser);
+    this.applyFilters();
   }
 }
