@@ -31,15 +31,12 @@ export class ParentComponent implements OnInit {
       this.applyFilters();
     });
   }
-
+  
+  handleUserAdded(newUser: User) {
+    this.sharedService.addUser(newUser); 
+  }
   applyFilters() {
     const selectedStatuses = this.sharedService.getSelectedStatuses();
     this.filteredUsers = selectedStatuses.length === 0 ? [...this.users] : this.users.filter(user => selectedStatuses.includes(user.status));
-  }
-
-  // Function to receive data from child component
-  handleUserAdded(newUser: User) {
-    this.users.push(newUser);
-    this.applyFilters();
   }
 }

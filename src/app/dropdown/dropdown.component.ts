@@ -42,3 +42,4 @@ export class DropdownComponent implements OnInit {
     this.sharedService.setSelectedStatuses([...this.selectedStatuses]); 
   }
 }
+
