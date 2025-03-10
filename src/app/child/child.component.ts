@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SharedService } from '../shared.service';
 import { User } from '../user.model';
 
 @Component({
@@ -17,11 +16,10 @@ export class ChildComponent {
   bookTitle: string = '';
   contactNumber: string = '';
   issueDate: string = '';
-  status: string = 'In Progress';
+  status: string = '';
 
   @Output() userAdded = new EventEmitter<User>();  
 
-  constructor(private sharedService: SharedService) {}
 
   addUser() {
     if (!this.nameOfBorrower || !this.bookId || !this.bookTitle || !this.contactNumber || !this.issueDate) {
@@ -43,16 +41,11 @@ export class ChildComponent {
       status: this.status
     };
   
-    this.userAdded.emit(newUser); // Emit event to parent
+    this.userAdded.emit(newUser); 
   
     this.clearForm();  
   }
   
-  handleUserAdded(newUser: User) {
-    this.sharedService.addUser(newUser); // update SharedService
-  }
-  
-
   clearForm() {
     this.nameOfBorrower = '';
     this.bookId = '';
@@ -61,4 +54,3 @@ export class ChildComponent {
     this.issueDate = '';
   }
 }
-
