@@ -1,5 +1,5 @@
 <div class="dropdown">
-  <button (click)="toggleDropdown()">Select Options</button>
+    <button (click)="toggleDropdown()">Select Options</button>
   <div *ngIf="isDropdownOpen" class="dropdown-content">
       <label *ngFor="let status of statuses">
           <input type="checkbox" [value]="status" (change)="onSelectionChange(status, $event)"> {{ status }}

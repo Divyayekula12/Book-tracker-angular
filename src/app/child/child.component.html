@@ -1,11 +1,22 @@
-<h1>{{title}}</h1>
+<h1>Book Stream Tracker</h1>
 <div class="form-container">
   <h2>Book Entry System</h2>
+
   <input type="text" placeholder="Name of the Borrower" [(ngModel)]="nameOfBorrower" class="input-field" required>
   <input type="text" placeholder="Book ID" [(ngModel)]="bookId" class="input-field" required>
   <input type="text" placeholder="Book title" [(ngModel)]="bookTitle" class="input-field" required>
   <input type="text" placeholder="Contact Number" [(ngModel)]="contactNumber" class="input-field" pattern="\d*" maxlength="10" required>
   <input type="date" [(ngModel)]="issueDate" class="input-field">
-<div class="button-container">
-  <button (click)="addUser()" class="add-user-btn">Add User</button>
+
+  <select [(ngModel)]="status" class="input-field">
+    <option value="" disabled selected>Select Status</option>
+    <option value="Pending">Pending</option>
+    <option value="Completed">Completed</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Cancelled">Cancelled</option>
+  </select>
+  
+  <div class="button-container">
+    <button (click)="addUser ()" class="add-user-btn">Add User</button>
+  </div>
 </div>
